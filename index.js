@@ -11,6 +11,7 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
 app.use("/factus/customer", routercustomer);
 app.use("/factus/items", routeritems);
 app.use("/factus/facturas", routerfacturas);
