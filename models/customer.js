@@ -7,7 +7,9 @@ const customerSchema = new mongoose.Schema({
     address: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: Number, required: true },
-    identification_document_id: { type: Number, required: true, default: 2 }
+    identification_document_id: { type: Number, required: true,},
+    tribute_id: { type: Number, required: true,}, 
+    municipality_id: { type: Number, required: true,  }
 });
 
 

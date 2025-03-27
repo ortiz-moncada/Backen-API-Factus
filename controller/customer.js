@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 import customerModel from '../models/customer.js';
-import { request } from 'express';
+
 
 //crear los customers
 const postCustomer = async (req, res)=>{
     try {
-        const {identification, dv, names, address, email,phone,identification_document_id} = req.body;
+        const {identification, dv, names, address, email,phone,identification_document_id,tribute_id,municipality_id} = req.body;
         const customer = new customerModel({
             identification,
             dv,
@@ -13,7 +13,9 @@ const postCustomer = async (req, res)=>{
             address,
             email,
             phone,
-            identification_document_id
+            identification_document_id,
+            tribute_id,
+            municipality_id
         });
         await customer.save();
         res.json({customer})
@@ -47,7 +49,9 @@ const putCustomerMo = async (req,res)=>{
             address,
             email,
             phone,
-            identification_document_id
+            identification_document_id,
+            tribute_id,
+            municipality_id
         } = req.body;
         const customer = await customerModel.findByIdAndUpdate(id,{
             identification,
@@ -56,7 +60,9 @@ const putCustomerMo = async (req,res)=>{
             address,
             email,
             phone,
-            identification_document_id
+            identification_document_id,
+            tribute_id,
+            municipality_id
         },{new:true});
         if(!customer){
             return res.status(400).json({error:"Movimiento no encontrado "})

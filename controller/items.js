@@ -6,10 +6,10 @@ import items from "../models/items.js";
     //crear
     const postItems = async (req, res) => {
         try {
-            const  {code_reference, name, quantity, price, email,phone,
+            const  {code_reference, name, quantity, price, email,phone,unit_measure_id, standard_code_id, is_excluded, tribute_id, discount_rate,
                 withholding_taxes} = req.body;
                 const items = new itemsModels({
-                    code_reference, name, quantity, price, email,phone,
+                    code_reference, name, quantity, price, email,phone,unit_measure_id, standard_code_id, is_excluded, tribute_id, discount_rate,
                     withholding_taxes
                 });
             await items.save();
@@ -35,10 +35,10 @@ import items from "../models/items.js";
     const putitems = async (req,res)=>{
      try{
         const {id} = req.params
-        const {code_reference, name, quantity, price, email,phone,
+        const {code_reference, name, quantity, price, email,phone,unit_measure_id, standard_code_id, is_excluded, tribute_id, discount_rate,
                 withholding_taxes} = req.body; 
             const items = await itemsModels.findByIdAndUpdate(id,{
-                code_reference, name, quantity, price, email,phone,
+                code_reference, name, quantity, price, email,phone,unit_measure_id, standard_code_id, is_excluded, tribute_id, discount_rate,
                     withholding_taxes
                
             },{new:true});
